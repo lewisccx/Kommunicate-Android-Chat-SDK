@@ -4075,7 +4075,7 @@ abstract public class MobiComConversationFragment extends Fragment implements Vi
         String message = null;
         if (object instanceof ALRichMessageModel.AlButtonModel) {
             ALRichMessageModel.AlButtonModel buttonModel = (ALRichMessageModel.AlButtonModel) object;
-            if (buttonModel.getAction() != null) {
+            if (isValidAction(buttonModel.getAction())) {
                 handleQuickReplies(buttonModel.getAction(), replyMetadata);
             } else {
                 message = buttonModel.getName();
@@ -4102,17 +4102,18 @@ abstract public class MobiComConversationFragment extends Fragment implements Vi
             if (!TextUtils.isEmpty(elementModel.getSource())) {
                 replyMetadata.put(AlRichMessage.KM_SOURCE, elementModel.getSource());
             }
-
-            if (elementModel.getAction() != null) {
+            if (isValidAction(elementModel.getAction())) {
                 handleQuickReplies(elementModel.getAction(), replyMetadata);
             } else {
                 message = elementModel.getTitle();
             }
         }
-
         if (!TextUtils.isEmpty(message)) {
             sendMessage(message, getStringMap(replyMetadata));
         }
+    }
+    public boolean isValidAction(ALRichMessageModel.AlAction action) {
+        return action != null && (action.getPayload() != null || !TextUtils.isEmpty(action.getText()));
     }
 
     public void handleSubmitButton(Object object) {
