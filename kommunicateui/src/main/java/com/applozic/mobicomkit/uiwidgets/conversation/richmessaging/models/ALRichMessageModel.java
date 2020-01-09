@@ -227,6 +227,8 @@ public class ALRichMessageModel extends JsonMarker {
         private List<AlButtonModel> buttons;
         private AlFormDataModel formData;
         private boolean isDeepLink;
+        private String label;
+        private String placeholder;
 
         public String getTitle() {
             return title;
@@ -350,6 +352,22 @@ public class ALRichMessageModel extends JsonMarker {
 
         public void setDeepLink(boolean deepLink) {
             isDeepLink = deepLink;
+        }
+
+        public String getLabel() {
+            return label;
+        }
+
+        public void setLabel(String label) {
+            this.label = label;
+        }
+
+        public String getPlaceholder() {
+            return placeholder;
+        }
+
+        public void setPlaceholder(String placeholder) {
+            this.placeholder = placeholder;
         }
 
         @Override
