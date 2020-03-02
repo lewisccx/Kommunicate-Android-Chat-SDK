@@ -36,7 +36,7 @@ You can connect your Dialogflow chatbot with Kommunicate in the following 4 simp
     - enable it for your project 
  
 ### Step 2: Create a student Kommunicate account
-Talk to an Kommunicate customer service officer online [Here](https://www.kommunicate.io/) and provide your student ID and email
+Talk to an Kommunicate customer service officer online [here](https://www.kommunicate.io/) and provide your student ID and email
 
 ### Step 3: Integrate your Dialogflow chatbot with Kommunicate
 - In the Bot integrations section, choose Dialogflow. A popup window will open.
@@ -44,36 +44,25 @@ Talk to an Kommunicate customer service officer online [Here](https://www.kommun
 - Give a name and image to your chatbot. It will be visible to the users chatting with your chatbot.
 - Enable/Disable chatbot to human handoff. If enabled, it will automatically assign conversations to humans in case the chatbot is not able to answer.
 
-### Step 4: Install the Kommunicate Android SDK to your app
-You can add the Kommunicate SDK in your Android app easily. More information on how to integrate with your Andriod app [here](https://docs.kommunicate.io/docs/android-installation.html). 
+### Step 5: Install the App on Cruzr
 
-> Note: Here's a [sample chatbot](https://docs.kommunicate.io/docs/bot-samples) for you to get started with Dialogflow. 
+- Export to APK File: Build / Build bundle(s)/APK(s) / Build APK(s)
 
+- follow the guide [here](http://tinyurl.com/sittraining24apr) /SIT Training/Development Training/Cruzr SDK Tutorial Guide.docx to get started with Cruzr. 
 
-## Other Features
+- follow the guide [here](https://developer.android.com/studio/command-line/adb) for more ADB command
 
-**Live chat widget:**  Make it easier for your visitors and users to reach you with an instant website and in-app support through chat. The widget is highly customizable. 
+## Other resouces/references
 
-**Chatbots:** Automate and speed up your customer service by integrating AI-powered chatbots. Build your chatbots and deploy them using Kommunicate and seamlessly add them in the live chat.
-
-**Conversations:** Manage all your customer queries coming from the live chat plugin. Easily manage and assign agents to cater to user conversations.
-
-**Dashboard:** A powerful dashboard to see, analyze and act upon your customer conversation data. Helps you analyze the performance of support agents as well.
-
-**Helpcenter:** Create your knowledge base and deploy on a dedicated page to cater to generic and recurring customer queries. Your customers will also be able to directly access FAQs in chat.
-
-**Mailbox:** A simple and powerful team inbox for ticketing, managing, receiving and replying to all your customer support emails. 
-
-**Integrations:** Easily move data between Kommunicate and your other favorite apps. Integrate your favorite CRM, knowledge base software and other apps.
-
-**Conversation Routing:** Select routing rules for incoming conversations for both your agents and bots. Choose between automatic assignments or to notify all.
-
-**Smart Rich Messaging:** Leverage rich messages using buttons, cards, carousels, forms or lists to provide an exquisite support chat experience to your customers.
-
-**Quick Replies:** Quickly respond to generic user queries using Quick Replies. Easily create and manage templated messages from your dashboard.
+[Google Speech Android Sample App](https://github.com/GoogleCloudPlatform/android-docs-samples/tree/master/speech/Speech)  
 
 
-## Technical Documentation
+[Google Speech Android Demo](https://github.com/sujitpanda/Google-Cloud-Speech-API)
 
-Detailed instructions for installing, configuring and customizing the Kommunicate Android SDK are [availble here](https://docs.kommunicate.io/docs/android-installation.html).
+## Folder Structure
+
+Most logic codes can be found in 
+- **kommunicateui/conversation/fragment/stt**
+- **kommunicateui/conversation/fragment/MobiComConversationaFragment**
+
 
