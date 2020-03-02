@@ -1,4 +1,4 @@
-<img align="center" src="https://raw.githubusercontent.com/Kommunicate-io/Kommunicate-Android-Chat-SDK/master/img/Header.png" width="900" />
+<img align="center" src="https://9to5toys.com/wp-content/uploads/sites/5/2019/01/ubtech-walker-cruzr-ces-3.jpg?resize=1024,512" width="900" />
 
 ## [Kommunicate](https://www.kommunicate.io/?utm_source=github&utm_medium=readme&utm_campaign=android) Android Chat SDK for Customer Support
 
