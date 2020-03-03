@@ -1,6 +1,9 @@
 apply plugin: 'com.android.application'
 
+
+
 android {
+
     compileSdkVersion 28
     defaultConfig {
         applicationId "io.kommunicate.app"
@@ -10,7 +13,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField "String", "APP_ID", '"<Your-APP-ID>"'
+        buildConfigField "String", "APP_ID", '"840b396383f0fddbb80ca4d53ba79cc1"'
     }
     buildTypes {
         release {

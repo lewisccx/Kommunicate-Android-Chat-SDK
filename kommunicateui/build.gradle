@@ -1,6 +1,14 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.google.protobuf'
 
+ext {
+    grpcVersion = '1.4.0'
+}
 android {
+
+    packagingOptions {
+        exclude 'META-INF/INDEX.LIST'
+    }
     compileSdkVersion 28
     buildToolsVersion '28.0.3'
 
@@ -18,11 +26,35 @@ android {
         }
     }
 
-    dataBinding {
-        enabled true
+    configurations.all {
+        resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.2'
     }
 }
+protobuf {
+    protoc {
+        artifact = 'com.google.protobuf:protoc:3.3.0'
+    }
+    plugins {
+        javalite {
+            artifact = "com.google.protobuf:protoc-gen-javalite:3.0.0"
+        }
+        grpc {
+            artifact = "io.grpc:protoc-gen-grpc-java:${grpcVersion}"
+        }
+    }
+    generateProtoTasks {
+        all().each { task ->
+            task.plugins {
+                javalite {}
+                grpc {
+                    // Options added to --grpc_out
+                    option 'lite'
+                }
+            }
+        }
+    }
 
+}
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     api project(':kommunicate')
@@ -36,6 +68,23 @@ dependencies {
     api 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     //Note: use this in case customization is not required
+
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+
+
+
+    //gRPC
+    implementation "io.grpc:grpc-okhttp:$grpcVersion"
+    implementation "io.grpc:grpc-protobuf-lite:$grpcVersion"
+    implementation "io.grpc:grpc-stub:$grpcVersion"
+    implementation 'javax.annotation:javax.annotation-api:1.2'
+    //implementation "com.google.cloud:google-cloud-speech:0.61.0-beta"
+    protobuf 'com.google.protobuf:protobuf-java:3.3.1'
+
+    implementation ('com.google.auth:google-auth-library-oauth2-http:0.7.0') {
+        exclude module: 'httpclient'
+    }
+    implementation 'org.jetbrains:annotations-java5:15.0'
 }
 /*ext {
     // Where you will see your artifact in Bintray's web interface
