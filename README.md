@@ -65,4 +65,12 @@ Most logic codes can be found in
 - **kommunicateui/conversation/fragment/stt**
 - **kommunicateui/conversation/fragment/MobiComConversationaFragment**
 
+## Contact Us
+
+There is no Us, only Me - **lewis.caocx@gmail.com**
+
+## Credentials
+
+- Please contact lewis.caocx@gmail.com for existing Google Credentials and Kommunicate Account
+
 
