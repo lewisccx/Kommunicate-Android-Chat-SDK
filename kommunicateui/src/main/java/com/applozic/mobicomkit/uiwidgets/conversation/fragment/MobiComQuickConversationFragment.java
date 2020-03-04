@@ -11,6 +11,7 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.appcompat.widget.Toolbar;
 import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -119,6 +120,13 @@ public class MobiComQuickConversationFragment extends Fragment implements Search
         thread.start();
         setHasOptionsMenu(true);
         BroadcastService.lastIndexForChats = 0;
+
+
+    }
+    @Override
+    public void onStart(){
+        super.onStart();
+        ((ConversationActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
     }
 
     @Override
@@ -166,6 +174,9 @@ public class MobiComQuickConversationFragment extends Fragment implements Search
         if (toolbarCustomLayout != null) {
             toolbarCustomLayout.setVisibility(View.GONE);
         }
+
+
+
         fabButton = (ImageButton) list.findViewById(R.id.fab_start_new);
         loading = true;
         LinearLayout individualMessageSendLayout = (LinearLayout) list.findViewById(R.id.individual_message_send_layout);
@@ -188,6 +199,7 @@ public class MobiComQuickConversationFragment extends Fragment implements Search
             }
         });
 
+
         individualMessageSendLayout.setVisibility(View.GONE);
         extendedSendingOptionLayout.setVisibility(View.GONE);
 
@@ -204,6 +216,7 @@ public class MobiComQuickConversationFragment extends Fragment implements Search
 
         recyclerView.setLongClickable(true);
         registerForContextMenu(recyclerView);
+
 
         return list;
     }
@@ -537,6 +550,40 @@ public class MobiComQuickConversationFragment extends Fragment implements Search
                 }
             });
         }
+        if(getView() == null){
+            return;
+        }
+
+        getView().setFocusableInTouchMode(true);
+        getView().requestFocus();
+        getView().setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+
+                if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK){
+                    LocalBroadcastManager.getInstance(getContext()).sendBroadcastSync(new Intent("KmLogoutOption"));
+                    try {
+                        if (!TextUtils.isEmpty(alCustomizationSettings.getLogoutPackage())) {
+                            Class loginActivity = Class.forName(alCustomizationSettings.getLogoutPackage().trim());
+                            if (loginActivity != null) {
+                                if (getActivity() instanceof KmActionCallback) {
+                                    ((KmActionCallback) getActivity()).onReceive(getContext(), alCustomizationSettings.getLogoutPackage().trim(), "logoutCall");
+                                } else {
+                                    KmHelper.performLogout(getContext(), alCustomizationSettings.getLogoutPackage().trim());
+                                }
+                            }
+                        }
+                    } catch (ClassNotFoundException e) {
+                        e.printStackTrace();
+                    } catch (ClassCastException e) {
+
+                    }
+                    return true;
+                }
+                return false;
+            }
+        });
+
     }
 
     @Override

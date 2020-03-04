@@ -54,15 +54,15 @@ public class MainActivity extends AppCompatActivity {
         Kommunicate.init(this, APP_ID);
 
         layout = (LinearLayout) findViewById(R.id.footerSnack);
-        mUserId = (EditText) findViewById(R.id.userId_editText);
-        mPassword = (EditText) findViewById(R.id.password_editText);
-        loginButton = (AppCompatButton) findViewById(R.id.btn_signup);
+        //mUserId = (EditText) findViewById(R.id.userId_editText);
+        //mPassword = (EditText) findViewById(R.id.password_editText);
+        //loginButton = (AppCompatButton) findViewById(R.id.btn_signup);
         visitorButton = findViewById(R.id.btn_login_as_visitor);
 
-        TextView txtViewPrivacyPolicy = (TextView) findViewById(R.id.txtPrivacyPolicy);
-        txtViewPrivacyPolicy.setMovementMethod(LinkMovementMethod.getInstance());
+        //TextView txtViewPrivacyPolicy = (TextView) findViewById(R.id.txtPrivacyPolicy);
+        //txtViewPrivacyPolicy.setMovementMethod(LinkMovementMethod.getInstance());
 
-        loginButton.setOnClickListener(new View.OnClickListener() {
+  /*      loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
-        });
+        });*/
 
         visitorButton.setOnClickListener(new View.OnClickListener() {
             @Override

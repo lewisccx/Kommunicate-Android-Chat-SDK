@@ -84,6 +84,7 @@
             android:fontFamily="sans-serif-medium"
             android:gravity="center_vertical"
             android:maxLines="1"
+
             android:text="@string/km_default_support_group_name"
             android:textColor="#f7ffffff"
             android:textSize="16sp"

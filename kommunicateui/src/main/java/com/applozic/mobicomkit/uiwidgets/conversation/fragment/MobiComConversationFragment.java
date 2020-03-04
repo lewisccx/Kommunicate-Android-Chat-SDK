@@ -1019,8 +1019,8 @@ public abstract class MobiComConversationFragment extends Fragment implements Vo
             getActivity().unbindService(mServiceConnection);
             mSpeechService = null;
         }
-
         ((ConversationActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+
     }
 
     @Override
