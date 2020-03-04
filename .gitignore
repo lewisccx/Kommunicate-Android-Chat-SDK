@@ -4,3 +4,4 @@
 /.gradle
 /.idea
 /gradle
+/kommunicateui/src/main/res/raw/credentials.json
